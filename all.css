@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+html {
+  font-family: 'Inter', sans-serif;
+  padding: 0 10% 0 10%;
+  background-color: #ebebeb;
+}
+
+header a {
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  padding: 5px;
+  border: 2px solid #317beb;
+  color: #317beb;
+  align-self: flex-end;
+  transition: 0.5s;
+  align-self: center;
+}
+
+header a::after {
+  transition: 1s;
+  opacity: 0%;
+}
+
+header a:hover {
+  box-shadow: 0 3px 5px 0 #317beb77;
+  transform: translateY(-2px);
+  background-color: white;
+}
+
+header a:hover::after {
+  opacity: 100%;
+  content: '→';
+}
+
+header h3 {
+  margin: 0;
+  font-size: 20px;
+}
+
+header h3::after {
+  content: "\A Foundations of Digital Art Portfolio";
+  color: #777777;
+  font-weight: lighter;
+  white-space: pre;
+
+}
+
+header {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  align-content: center;
+  /* background: white;
+  padding: 10px;
+  border-radius: 5px; */
+  margin: 30px 0;
+}
+
+h3 {
+  margin: 5px 0;
+}
+
+.section {
+  width: 100%;
+  background: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 20px 0;
+}
+
+.about p {
+  color: #353636;
+}
+
+.select {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+}
+
+nav {
+  margin: 10px 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: stretch;
+  border: solid black 1px;
+  border-radius: 5px;
+
+}
+
+nav a {
+  display: table-cell;
+  width: 100%;
+  border-left: solid black 1px;
+  color: black;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  padding: 5px;
+  transition: 0.2s;
+}
+
+nav a:hover {
+  color: white;
+  background-color: black;
+}
+
+a.left {
+  border-left: none;
+}
+
+a {
+    color: black;
+    text-decoration: underline solid #317beb77;
+    transition: 0.2s;
+}
+
+a:hover {
+  background-color: #317beb33;
+  text-decoration-color: #317beb;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
