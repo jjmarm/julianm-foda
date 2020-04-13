@@ -2,8 +2,19 @@
 
 html {
   font-family: 'Inter', sans-serif;
-  padding: 0 10% 0 10%;
   background-color: #ebebeb;
+  scroll-behavior: smooth;
+}
+
+body {
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 0;
+  margin: 0;
+}
+
+.body {
+  padding: 0 10% 0 10%;
 }
 
 header a {
@@ -82,42 +93,60 @@ h3 {
   top: 0;
 }
 
-nav {
+ul {
+  padding: 0;
+  all: unset;
   margin: 10px 0;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-around;
   align-items: stretch;
+  align-content: center;
   border: solid black 1px;
   border-radius: 5px;
-
+  list-style-type: none;
 }
 
-nav a {
-  display: table-cell;
+li {
+  list-style: none;
+  display: flex;
+  align-items: center;
   width: 100%;
   border-left: solid black 1px;
   color: black;
   text-align: center;
   vertical-align: middle;
+  transition: background-color 0.2s;
+}
+
+ul a {
+  color: inherit;
+  display: table-cell;
+  width: 100%;
+  vertical-align: middle;
   text-decoration: none;
   padding: 5px;
+  background-color: #ffffff00;
   transition: 0.2s;
 }
 
-nav a:hover {
+ul a:hover {
+  background-color: #ffffff00;
+}
+
+ul li:hover, #select li.active {
   color: white;
   background-color: black;
 }
 
-a.left {
+.left {
   border-left: none;
 }
 
 a {
-    color: black;
-    text-decoration: underline solid #317beb77;
-    transition: 0.2s;
+  color: black;
+  text-decoration: underline solid #317beb77;
+  transition: 0.2s;
 }
 
 a:hover {
@@ -128,4 +157,21 @@ a:hover {
 img {
   width: 100%;
   height: auto;
+}
+
+.resizer {
+  height: 100%;
+  width: 10%;
+  position: static;
+  background-color: #111111;
+  top: 0;
+  right: 0;
+  color: white;
+  writing-mode: vertical-rl;
+}
+
+.resizer p {
+  /* transform-origin: right top 0; */
+  margin:  0;
+  float: left;
 }

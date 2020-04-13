@@ -1,64 +1,100 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <link rel="stylesheet" href="all.css">
-    <meta charset="utf-8">
-    <title>FoDA Profile | Julian M</title>
-  </head>
-  <header>
+<head>
+  <link rel="stylesheet" href="all.css">
+  <meta charset="utf-8">
+  <title>FoDA Profile | Julian M</title>
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function(){
+          const sections = document.querySelectorAll(".section.ch");
+          const menu_links = document.querySelectorAll("li");
+
+          console.log(sections);
+
+          const makeActive = (link) => menu_links[link].classList.add("active");
+          const removeActive = (link) => menu_links[link].classList.remove("active");
+          const removeAllActive = () => [...Array(sections.length).keys()].forEach((link) => removeActive(link));
+
+          let currentActive = 0;
+          const sectionMargin = 200;
+
+          window.addEventListener("scroll", () => {
+            const current = sections.length - [...sections].reverse().findIndex((section) => window.scrollY >= section.offsetTop - sectionMargin ) - 1
+
+            if (current !== currentActive) {
+              removeAllActive();
+              currentActive = current;
+              makeActive(current);
+            }
+          }, false)
+    }, false);
+  </script>
+  <style media="screen">
+  li.active {
+    background-color: black;
+  }
+  </style>
+</head>
+<body>
+  <div class="body">
+    <header>
       <h3 class="right">Julian Marmier</h3>
       <a href="https://julianm.tk">julianm.tk</a>
-  </header>
-  <body>
+    </header>
     <div class="section about">
       <h3>About me</h3>
       <p>I'm Julian Marmier, a senior at Lexington High School, in Lexington, MA. Ever since I was four, I’ve always been passionate about two things—computers and design. Today I like to blend both of those together as much as I can,
         and am part of a FIRST Tech Challenge robotics team, the Lexington Legoheads, where I lead work on the Engineering Notebook. I'm not that much of an athlete, but I did enjoy swimming on the LHS Boys Varsity Swim Team!</p>
-      <p>Contact me – <a href="mailto:julianmarmier@gmail.com">julianmarmier@gmail.com</a></p>
-    </div>
-    <div class="section select">
-      Choose a category to see work from that section.
-      <nav>
-        <a href="#thirds" class="left">Rule of Thirds</a>
-        <a href="#lines">Leading Lines</a>
-        <a href="#pov">Point of View</a>
-        <a href="#color">Color Relationships</a>
-        <a href="#psd" class="right">Photoshop</a>
-      </nav>
-    </div>
+        <p>Contact me – <a href="mailto:julianmarmier@gmail.com">julianmarmier@gmail.com</a></p>
+      </div>
+      <div class="section select">
+        Choose a category to see work from that section.
+        <ul id="select">
+          <li class="left"><a href="#thirds">Rule of Thirds</a></li>
+          <li><a href="#lines">Leading Lines</a></li>
+          <li><a href="#pov">Point of View</a></li>
+          <li><a href="#color">Color Relationships</a></li>
+          <li><a href="#psd" class="right">Photoshop</a></li>
+        </ul>
+      </div>
 
-    <div class="section" id="thirds">
-      <h3>Rule of Thirds</h3>
-      <img src="images/thirds1.jpg" alt="Rule of Thirds">
-      <img src="images/thirds2.jpg" alt="Rule of Thirds">
-      <img src="images/thirds3.jpg" alt="Rule of Thirds">
-    </div>
+      <div class="section ch" id="thirds">
+        <h3>Rule of Thirds</h3>
+        <img src="images/thirds1.jpg" alt="Rule of Thirds">
+        <img src="images/thirds2.jpg" alt="Rule of Thirds">
+        <img src="images/thirds3.jpg" alt="Rule of Thirds">
+      </div>
 
-    <div class="section" id="lines">
-      <h3>Leading Lines</h3>
-      <img src="images/lines1.jpg" alt="">
-      <img src="images/lines2.jpg" alt="">
-      <img src="images/lines3.jpg" alt="">
-    </div>
+      <div class="section ch" id="lines">
+        <h3>Leading Lines</h3>
+        <img src="images/lines1.jpg" alt="">
+        <img src="images/lines2.jpg" alt="">
+        <img src="images/lines3.jpg" alt="">
+      </div>
 
-    <div class="section" id="pov">
-      <h3>Point of View</h3>
-      <img src="images/pov1.jpg" alt="">
-      <img src="images/pov2.jpeg" alt="">
-      <img src="images/pov3.jpg" alt="">
-      <img src="images/pov4.png" alt="">
-    </div>
+      <div class="section ch" id="pov">
+        <h3>Point of View</h3>
+        <img src="images/pov1.jpg" alt="">
+        <img src="images/pov2.jpeg" alt="">
+        <img src="images/pov3.jpg" alt="">
+        <img src="images/pov4.png" alt="">
+      </div>
 
-    <div class="section" id="color">
-      <h3>Color Relationships</h3>
-      <img src="images/color1.jpg" alt="">
-      <img src="images/color2.jpg" alt="">
-      <img src="images/color3.jpg" alt="">
-    </div>
+      <div class="section ch" id="color">
+        <h3>Color Relationships</h3>
+        <img src="images/color1.jpg" alt="">
+        <img src="images/color2.jpg" alt="">
+        <img src="images/color3.jpg" alt="">
+      </div>
 
-    <div class="section" id="psd">
-      <h3>Photoshop Project</h3>
-      <img src="images/psd.jpg" alt="">
+      <div class="section ch" id="psd">
+        <h3>Photoshop Project</h3>
+        <img src="images/psd.png" alt="">
+      </div>
     </div>
-  </body>
+    <!--
+    <div class="resizer" id="resize">
+    <p>Drag here to resize the viewer.</p>
+  </div> -->
+</body>
 </html>
