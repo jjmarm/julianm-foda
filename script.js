@@ -1,25 +1,81 @@
-var i = 0;
-var dragging = false;
+// var i = 0;
+// var dragging = false;
+//
+// $("#resize").mousedown(function(e) {
+//   e.preventDefault;
+//   console.log("Mouse down!");
+//
+//   dragging = true;
+//   $(document).mousemove(function(e) {
+//       $("#resize").css("right", e.pageX + 2)
+//   });
+// });
+//
+// $(document).mouseup(function (e) {
+//   if (dragging) {
+//     var percentage = (e.pageX / window.innerWidth) * 100;
+//     var bodyPercentage = 100 - percentage;
+//
+//     $("#resize").css("width", percentage + "%");
+//     $(".body").css("width", bodyPercentage + "%")
+//
+//     $(document).unbind("mousemove");
+//     dragging = false;
+//   }
+// })
 
-$("#resize").mousedown(function(e) {
-  e.preventDefault;
-  console.log("Mouse down!");
+document.addEventListener('DOMContentLoaded', function(){
+      const sections = document.querySelectorAll(".section.ch");
+      const menu_links = document.querySelectorAll("li");
 
-  dragging = true;
-  $(document).mousemove(function(e) {
-      $("#resize").css("right", e.pageX + 2)
-  });
-});
+      const makeActive = (link) => menu_links[link].classList.add("active");
+      const removeActive = (link) => menu_links[link].classList.remove("active");
+      const removeAllActive = () => [...Array(sections.length).keys()].forEach((link) => removeActive(link));
 
-$(document).mouseup(function (e) {
-  if (dragging) {
-    var percentage = (e.pageX / window.innerWidth) * 100;
-    var bodyPercentage = 100 - percentage;
+      let currentActive = 0;
+      const sectionMargin = 200;
 
-    $("#resize").css("width", percentage + "%");
-    $(".body").css("width", bodyPercentage + "%")
+      window.addEventListener("scroll", () => {
+        const current = sections.length - [...sections].reverse().findIndex((section) => window.scrollY >= section.offsetTop - sectionMargin ) - 1
 
-    $(document).unbind("mousemove");
-    dragging = false;
+        if (current !== currentActive) {
+          removeAllActive();
+          currentActive = current;
+          makeActive(current);
+        }
+      }, false)
+
+      const images = document.querySelectorAll("img");
+      const tooltip = document.getElementById('tooltip');
+
+      console.log(window.innerWidth)
+
+      for (var i = 0; i < images.length; i++) {
+        const altText = images[i].alt;
+        images[i].addEventListener('mousemove', function (e) {
+          if (altText != "") {
+            tooltip.style.visibility = "visible";
+            tooltip.style.opacity = 1.0;
+            tooltip.innerHTML = `<p>${altText}</p>`
+            tooltip.style.top = e.pageY + 'px';
+            if ((e.pageX + tooltip.offsetWidth) < window.innerWidth) {
+              tooltip.style.left = e.pageX + 'px';
+            }
+          }
+        }, false)
+        images[i].addEventListener('mouseout', function (e) {
+            tooltip.style.visibility = "hidden";
+            tooltip.style.opacity = 0;
+        })
+      }
+}, false);
+
+function sliderChange(percent) {
+  const images = document.querySelectorAll("img");
+
+  for (var image of images) {
+    image.style.width = percent + "%";
   }
-})
+
+  document.getElementById('slidertext').innerHTML = percent + "%";
+}

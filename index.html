@@ -4,31 +4,7 @@
   <link rel="stylesheet" href="all.css">
   <meta charset="utf-8">
   <title>FoDA Profile | Julian M</title>
-  <script type="text/javascript">
-    document.addEventListener('DOMContentLoaded', function(){
-          const sections = document.querySelectorAll(".section.ch");
-          const menu_links = document.querySelectorAll("li");
-
-          console.log(sections);
-
-          const makeActive = (link) => menu_links[link].classList.add("active");
-          const removeActive = (link) => menu_links[link].classList.remove("active");
-          const removeAllActive = () => [...Array(sections.length).keys()].forEach((link) => removeActive(link));
-
-          let currentActive = 0;
-          const sectionMargin = 200;
-
-          window.addEventListener("scroll", () => {
-            const current = sections.length - [...sections].reverse().findIndex((section) => window.scrollY >= section.offsetTop - sectionMargin ) - 1
-
-            if (current !== currentActive) {
-              removeAllActive();
-              currentActive = current;
-              makeActive(current);
-            }
-          }, false)
-    }, false);
-  </script>
+  <script type="text/javascript" src="script.js"></script>
   <style media="screen">
   li.active {
     background-color: black;
@@ -41,6 +17,9 @@
       <h3 class="right">Julian Marmier</h3>
       <a href="https://julianm.tk">julianm.tk</a>
     </header>
+    <div id="tooltip">
+      <p></p>
+    </div>
     <div class="section about">
       <h3>About me</h3>
       <p>I'm Julian Marmier, a senior at Lexington High School, in Lexington, MA. Ever since I was four, I’ve always been passionate about two things—computers and design. Today I like to blend both of those together as much as I can,
@@ -54,42 +33,57 @@
           <li><a href="#lines">Leading Lines</a></li>
           <li><a href="#pov">Point of View</a></li>
           <li><a href="#color">Color Relationships</a></li>
-          <li><a href="#psd" class="right">Photoshop</a></li>
+          <li><a href="#psd">Photoshop</a></li>
+          <li><a href="#scale" class="right">Scale</a></li>
         </ul>
       </div>
 
       <div class="section ch" id="thirds">
         <h3>Rule of Thirds</h3>
-        <img src="images/thirds1.jpg" alt="Rule of Thirds">
-        <img src="images/thirds2.jpg" alt="Rule of Thirds">
-        <img src="images/thirds3.jpg" alt="Rule of Thirds">
+        <img src="images/thirds1.jpg" alt="Ski hangout">
+        <img src="images/thirds2.jpg" alt="Capture the moments">
+        <img src="images/thirds3.jpg" alt="Sunset">
       </div>
 
       <div class="section ch" id="lines">
         <h3>Leading Lines</h3>
-        <img src="images/lines1.jpg" alt="">
-        <img src="images/lines2.jpg" alt="">
-        <img src="images/lines3.jpg" alt="">
+        <img src="images/lines1.jpg" alt="Morning stroll">
+        <img src="images/lines2.jpg" alt="Archway vision">
+        <img src="images/lines3.jpg" alt="Leading cars">
       </div>
 
       <div class="section ch" id="pov">
         <h3>Point of View</h3>
-        <img src="images/pov1.jpg" alt="">
-        <img src="images/pov2.jpeg" alt="">
-        <img src="images/pov3.jpg" alt="">
-        <img src="images/pov4.png" alt="">
+        <img src="images/pov1.jpg" alt="Bird's eye view">
+        <img src="images/pov2.jpeg" alt="Overhead student">
+        <img src="images/pov3.jpg" alt="Eye-to-eye with a dog">
+        <img src="images/pov4.png" alt="Below the hoop">
       </div>
 
       <div class="section ch" id="color">
         <h3>Color Relationships</h3>
-        <img src="images/color1.jpg" alt="">
-        <img src="images/color2.jpg" alt="">
-        <img src="images/color3.jpg" alt="">
+        <img src="images/color1.jpg" alt="Analogous">
+        <img src="images/color2.jpg" alt="Monochromatic">
+        <img src="images/color3.jpg" alt="Full circle">
       </div>
 
       <div class="section ch" id="psd">
         <h3>Photoshop Project</h3>
-        <img src="images/psd.png" alt="">
+        <img src="images/psd.png" alt="Penetentiary?">
+      </div>
+
+      <div class="section ch" id="scale">
+        <h3>Scale</h3>
+        <img src="images/scale1.jpg" alt="Spring is coming">
+        <img src="images/scale2.jpg" alt="The tree">
+        <img src="images/scale3.jpg" alt="The daltons">
+      </div>
+    </div>
+    <div class="imagesizer">
+      <h4>Image Size</h4>
+      <div class="slidecontainer">
+        <input type="range" min="1" max="100" value="100" class="slider" oninput="sliderChange(this.value)" id="slider"/>
+        <p id="slidertext">100%</p>
       </div>
     </div>
     <!--
