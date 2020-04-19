@@ -262,6 +262,7 @@ img {
   transition: opacity 0.2s;
   align-items: center;
   flex-flow: row nowrap;
+  z-index: 100;
 }
 
 #tooltip p {
