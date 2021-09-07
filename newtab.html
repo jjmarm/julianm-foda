@@ -1,5 +1,23 @@
 <html>
-  <style>
+  <script>
+    var nochange = true;
+    
+    window.onbeforeunload = function() { if (nochange) {return "Would you really like to close your browser?";} }
+
+    window.addEventListener('keydown', function (e) {
+      // console.log(e.key)
+      const val = document.querySelector('input').value
+      if (val != "" && e.key === "Enter") {
+        nochange = false;
+        document.location.href=`https://google.com/search?q=${val}`;
+      }
+    }, false);
+  </script>
+  <head>
+    <title>New Tab</title>
+  </head>
+  <body>
+    <style>
     .big {
       height: 100vh;
       width: 100vw;
@@ -23,21 +41,6 @@
         }
     }
   </style>
-  <script>
-    window.onbeforeunload = function() { return "Would you really like to close your browser?"; }
-
-    window.addEventListener('keydown', function (e) {
-      // console.log(e.key)
-      const val = document.querySelector('input').value
-      if (val != "" && e.key === "Enter") {
-        document.location.href=`https://google.com/search?q=${val}`;
-      }
-    }, false);
-  </script>
-  <head>
-    <title>New Tab</title>
-  </head>
-  <body>
     <div class="big">
       <input type="text" placeholder="Search…"/>
     </div>
