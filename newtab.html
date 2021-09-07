@@ -27,10 +27,10 @@
     window.onbeforeunload = function() { return "Would you really like to close your browser?"; }
 
     window.addEventListener('keydown', function (e) {
-      console.log(e.key)
+      // console.log(e.key)
       const val = document.querySelector('input').value
       if (val != "" && e.key === "Enter") {
-        document.location.href=`https://google.com/?q=${val}`;
+        document.location.href=`https://google.com/search?q=${val}`;
       }
     }, false);
   </script>
