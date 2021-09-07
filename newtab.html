@@ -1,0 +1,45 @@
+<html>
+  <style>
+    .big {
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      input {
+        transition: 0.2s;
+        font-size: 4em;
+        font-family: --apple-system, BlinkMacSystemFont, sans-serif;
+        border: 0;
+        border-radius: 20px;
+        padding: 10px;
+        }
+
+       input:focus {
+            border: 0;
+            outline: none;
+            box-shadow: 0px 2px 20px rgba(0, 122, 255, 0.5);
+        }
+    }
+  </style>
+  <script>
+    window.onbeforeunload = function() { return "Would you really like to close your browser?"; }
+
+    window.addEventListener('keydown', function (e) {
+      console.log(e.key)
+      const val = document.querySelector('input').value
+      if (val != "" && e.key === "Enter") {
+        document.location.href=`https://google.com/?q=${val}`;
+      }
+    }, false);
+  </script>
+  <head>
+    <title>New Tab</title>
+  </head>
+  <body>
+    <div class="big">
+      <input type="text" placeholder="Search…"/>
+    </div>
+  </body>
+</html>
